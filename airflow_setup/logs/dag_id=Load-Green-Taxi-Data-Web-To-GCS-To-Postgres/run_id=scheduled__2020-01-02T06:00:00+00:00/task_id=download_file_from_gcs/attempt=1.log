@@ -1,0 +1,125 @@
+[2023-10-02T02:19:38.093+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2020-01-02T06:00:00+00:00 [queued]>
+[2023-10-02T02:19:38.104+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2020-01-02T06:00:00+00:00 [queued]>
+[2023-10-02T02:19:38.104+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-10-02T02:19:38.184+0000] {taskinstance.py:1327} INFO - Executing <Task(GCSToLocalFilesystemOperator): download_file_from_gcs> on 2020-01-02 06:00:00+00:00
+[2023-10-02T02:19:38.194+0000] {standard_task_runner.py:57} INFO - Started process 2744 to run task
+[2023-10-02T02:19:38.198+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'download_file_from_gcs', 'scheduled__2020-01-02T06:00:00+00:00', '--job-id', '699', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmpfa3mm44k']
+[2023-10-02T02:19:38.201+0000] {standard_task_runner.py:85} INFO - Job 699: Subtask download_file_from_gcs
+[2023-10-02T02:19:38.271+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2020-01-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T02:19:38.385+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='download_file_from_gcs' AIRFLOW_CTX_EXECUTION_DATE='2020-01-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2020-01-02T06:00:00+00:00'
+[2023-10-02T02:19:38.386+0000] {gcs_to_local.py:111} INFO - Executing download: practice18, green/green_tripdata_2020-01.csv, /opt/***/green_tripdata_2020-01.csv
+[2023-10-02T02:19:38.387+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-10-02T02:19:38.388+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-10-02T02:20:05.403+0000] {gcs.py:341} INFO - File downloaded to /opt/***/green_tripdata_2020-01.csv
+[2023-10-02T02:20:05.425+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=download_file_from_gcs, execution_date=20200102T060000, start_date=20231002T021938, end_date=20231002T022005
+[2023-10-02T02:20:05.776+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-10-02T02:20:05.807+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2023-10-02T19:11:12.401+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2020-01-02T06:00:00+00:00 [queued]>
+[2023-10-02T19:11:12.420+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2020-01-02T06:00:00+00:00 [queued]>
+[2023-10-02T19:11:12.421+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-10-02T19:11:12.455+0000] {taskinstance.py:1327} INFO - Executing <Task(GCSToLocalFilesystemOperator): download_file_from_gcs> on 2020-01-02 06:00:00+00:00
+[2023-10-02T19:11:12.463+0000] {standard_task_runner.py:57} INFO - Started process 9811 to run task
+[2023-10-02T19:11:12.466+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'download_file_from_gcs', 'scheduled__2020-01-02T06:00:00+00:00', '--job-id', '1040', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmp0s70gd1c']
+[2023-10-02T19:11:12.469+0000] {standard_task_runner.py:85} INFO - Job 1040: Subtask download_file_from_gcs
+[2023-10-02T19:11:12.536+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2020-01-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T19:11:12.678+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='download_file_from_gcs' AIRFLOW_CTX_EXECUTION_DATE='2020-01-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2020-01-02T06:00:00+00:00'
+[2023-10-02T19:11:12.679+0000] {gcs_to_local.py:111} INFO - Executing download: practice18, green/green_tripdata_2020-01.csv, /opt/***/green_tripdata_2020-01.csv
+[2023-10-02T19:11:12.680+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-10-02T19:11:12.680+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-10-02T19:11:23.163+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 721, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 461, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/lib/python3.7/http/client.py", line 1373, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.7/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/lib/python3.7/http/client.py", line 288, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 497, in send
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 799, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 721, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 461, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/lib/python3.7/http/client.py", line 1373, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.7/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/lib/python3.7/http/client.py", line 288, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/auth/transport/requests.py", line 194, in __call__
+    method, url, data=body, headers=headers, timeout=timeout, **kwargs
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/transfers/gcs_to_local.py", line 125, in execute
+    hook.download(bucket_name=self.bucket, object_name=self.object_name, filename=self.filename)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 340, in download
+    blob.download_to_filename(filename, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/cloud/storage/blob.py", line 1270, in download_to_filename
+    retry=retry,
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/cloud/storage/client.py", line 1109, in download_blob_to_file
+    retry=retry,
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/cloud/storage/blob.py", line 984, in _do_download
+    response = download.consume(transport, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/resumable_media/requests/download.py", line 238, in consume
+    retriable_request, self._get_status_code, self._retry_strategy
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/resumable_media/requests/_request_helpers.py", line 155, in wait_and_retry
+    response = func()
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/resumable_media/requests/download.py", line 210, in retriable_request
+    result = transport.request(method, url, **request_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/auth/transport/requests.py", line 545, in request
+    self.credentials.before_request(auth_request, method, url, request_headers)
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/auth/credentials.py", line 151, in before_request
+    self.refresh(request)
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/oauth2/service_account.py", line 435, in refresh
+    request, self._token_uri, assertion
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/oauth2/_client.py", line 318, in jwt_grant
+    metrics.API_CLIENT_HEADER: metrics.token_request_access_token_sa_assertion()
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/oauth2/_client.py", line 280, in _token_endpoint_request
+    **kwargs
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/oauth2/_client.py", line 219, in _token_endpoint_request_no_throw
+    request_succeeded, response_data, retryable_error = _perform_request()
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/oauth2/_client.py", line 196, in _perform_request
+    method="POST", url=token_uri, headers=headers_to_use, body=body, **kwargs
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/auth/transport/requests.py", line 199, in __call__
+    six.raise_from(new_exc, caught_exc)
+  File "<string>", line 3, in raise_from
+google.auth.exceptions.TransportError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2023-10-02T19:11:23.430+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=download_file_from_gcs, execution_date=20200102T060000, start_date=20231002T191112, end_date=20231002T191123
+[2023-10-02T19:11:23.483+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 1040 for task download_file_from_gcs (('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')); 9811)
+[2023-10-02T19:11:23.497+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-10-02T19:11:23.536+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,32 @@
+[2023-10-02T02:17:46.444+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_to_postgres scheduled__2019-12-02T06:00:00+00:00 [queued]>
+[2023-10-02T02:17:46.458+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_to_postgres scheduled__2019-12-02T06:00:00+00:00 [queued]>
+[2023-10-02T02:17:46.459+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 3
+[2023-10-02T02:17:46.488+0000] {taskinstance.py:1327} INFO - Executing <Task(PostgresOperator): load_to_postgres> on 2019-12-02 06:00:00+00:00
+[2023-10-02T02:17:46.498+0000] {standard_task_runner.py:57} INFO - Started process 2699 to run task
+[2023-10-02T02:17:46.502+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'load_to_postgres', 'scheduled__2019-12-02T06:00:00+00:00', '--job-id', '696', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmpyvx7dmfm']
+[2023-10-02T02:17:46.504+0000] {standard_task_runner.py:85} INFO - Job 696: Subtask load_to_postgres
+[2023-10-02T02:17:46.566+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_to_postgres scheduled__2019-12-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T02:17:46.714+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='load_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2019-12-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2019-12-02T06:00:00+00:00'
+[2023-10-02T02:17:46.715+0000] {sql.py:265} INFO - Executing: SELECT * FROM pg_ls_dir(/opt/***/green_tripdata_2019-12.csv) LIMIT 5;
+[2023-10-02T02:17:46.726+0000] {base.py:73} INFO - Using connection ID 'my_postgres_conn' for task execution.
+[2023-10-02T02:17:46.817+0000] {base.py:73} INFO - Using connection ID 'my_postgres_conn' for task execution.
+[2023-10-02T02:17:46.822+0000] {sql.py:375} INFO - Running statement: SELECT * FROM pg_ls_dir(/opt/***/green_tripdata_2019-12.csv) LIMIT 5;, parameters: None
+[2023-10-02T02:17:46.823+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 277, in execute
+    **extra_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 349, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 380, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.SyntaxError: syntax error at or near "/"
+LINE 1: SELECT * FROM pg_ls_dir(/opt/***/green_tripdata_2019-12....
+                                ^
+
+[2023-10-02T02:17:46.834+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=load_to_postgres, execution_date=20191202T060000, start_date=20231002T021746, end_date=20231002T021746
+[2023-10-02T02:17:46.854+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 696 for task load_to_postgres (syntax error at or near "/"
+LINE 1: SELECT * FROM pg_ls_dir(/opt/***/green_tripdata_2019-12....
+                                ^
+; 2699)
+[2023-10-02T02:17:46.874+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-10-02T02:17:46.906+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

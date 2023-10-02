@@ -1,0 +1,21 @@
+[2023-10-02T18:51:46.943+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.extract_from_web_to_gcs scheduled__2019-10-02T06:00:00+00:00 [queued]>
+[2023-10-02T18:51:46.957+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.extract_from_web_to_gcs scheduled__2019-10-02T06:00:00+00:00 [queued]>
+[2023-10-02T18:51:46.958+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-10-02T18:51:47.079+0000] {taskinstance.py:1327} INFO - Executing <Task(WebToGCSHKOperator): extract_from_web_to_gcs> on 2019-10-02 06:00:00+00:00
+[2023-10-02T18:51:47.090+0000] {standard_task_runner.py:57} INFO - Started process 9464 to run task
+[2023-10-02T18:51:47.098+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'extract_from_web_to_gcs', 'scheduled__2019-10-02T06:00:00+00:00', '--job-id', '1029', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmpma3qnnyg']
+[2023-10-02T18:51:47.101+0000] {standard_task_runner.py:85} INFO - Job 1029: Subtask extract_from_web_to_gcs
+[2023-10-02T18:51:47.240+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.extract_from_web_to_gcs scheduled__2019-10-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T18:51:47.703+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='extract_from_web_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2019-10-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2019-10-02T06:00:00+00:00'
+[2023-10-02T18:51:47.705+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-10-02T18:51:47.705+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-10-02T18:51:47.706+0000] {Web_To_GCS_Hook.py:67} INFO - Execute downloading of file from https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-10.csv.gz to gs://practice18//green_tripdata_2019-10.csv.gz
+[2023-10-02T18:51:57.107+0000] {Web_To_GCS_Hook.py:79} INFO - File written to temporary directory: /tmp/tmpb9pxx18w/green_tripdata_2019-10.csv.gz
+[2023-10-02T18:51:59.253+0000] {warnings.py:110} WARNING - /opt/***/plugins/web/operators/Web_To_GCS_Hook.py:58: DtypeWarning: Columns (3) have mixed types.Specify dtype option on import or set low_memory=False.
+  self._copy_file_object(gcs_hook)
+
+[2023-10-02T18:52:09.231+0000] {local_task_job_runner.py:292} WARNING - State of this instance has been externally set to success. Terminating instance.
+[2023-10-02T18:52:09.284+0000] {process_utils.py:135} INFO - Sending Signals.SIGTERM to group 9464. PIDs of all processes in the group: [9464]
+[2023-10-02T18:52:09.284+0000] {process_utils.py:86} INFO - Sending the signal Signals.SIGTERM to group 9464
+[2023-10-02T18:52:29.297+0000] {taskinstance.py:1517} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-10-02T18:52:30.223+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=9464, status='terminated', exitcode=0, started='18:51:46') (9464) terminated with exit code 0

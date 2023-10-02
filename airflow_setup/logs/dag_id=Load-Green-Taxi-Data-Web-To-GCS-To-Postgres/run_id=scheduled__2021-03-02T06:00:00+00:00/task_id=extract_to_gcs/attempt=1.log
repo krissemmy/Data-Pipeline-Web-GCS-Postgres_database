@@ -1,0 +1,31 @@
+[2023-10-02T10:27:32.032+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.extract_to_gcs scheduled__2021-03-02T06:00:00+00:00 [queued]>
+[2023-10-02T10:27:32.046+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.extract_to_gcs scheduled__2021-03-02T06:00:00+00:00 [queued]>
+[2023-10-02T10:27:32.046+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-10-02T10:27:32.324+0000] {taskinstance.py:1327} INFO - Executing <Task(WebToGCSHKOperator): extract_to_gcs> on 2021-03-02 06:00:00+00:00
+[2023-10-02T10:27:32.333+0000] {standard_task_runner.py:57} INFO - Started process 663 to run task
+[2023-10-02T10:27:32.376+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'extract_to_gcs', 'scheduled__2021-03-02T06:00:00+00:00', '--job-id', '766', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmp1z02i05y']
+[2023-10-02T10:27:32.379+0000] {standard_task_runner.py:85} INFO - Job 766: Subtask extract_to_gcs
+[2023-10-02T10:27:32.898+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.extract_to_gcs scheduled__2021-03-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T10:27:33.627+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='extract_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2021-03-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-03-02T06:00:00+00:00'
+[2023-10-02T10:27:33.629+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-10-02T10:27:33.630+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-10-02T10:27:33.630+0000] {Web_To_GCS_Hook.py:67} INFO - Execute downloading of file from https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2021-03.csv.gz to gs://practice18//green_tripdata_2021-03.csv.gz
+[2023-10-02T10:27:36.989+0000] {Web_To_GCS_Hook.py:79} INFO - File written to temporary directory: /tmp/tmp40uq8vez/green_tripdata_2021-03.csv.gz
+[2023-10-02T10:27:37.220+0000] {warnings.py:110} WARNING - /opt/***/plugins/web/operators/Web_To_GCS_Hook.py:58: DtypeWarning: Columns (3) have mixed types.Specify dtype option on import or set low_memory=False.
+  self._copy_file_object(gcs_hook)
+
+[2023-10-02T10:27:37.546+0000] {logging_mixin.py:150} INFO -    VendorID lpep_pickup_datetime  ... trip_type congestion_surcharge
+0       2.0  2021-03-01 00:05:42  ...       1.0                  0.0
+1       2.0  2021-03-01 00:21:03  ...       1.0                  0.0
+2       2.0  2021-03-01 00:02:06  ...       1.0                  0.0
+3       2.0  2021-03-01 00:24:03  ...       1.0                  0.0
+4       1.0  2021-03-01 00:11:10  ...       1.0                  0.0
+
+[5 rows x 20 columns]
+[2023-10-02T10:27:37.546+0000] {logging_mixin.py:150} INFO - (83827, 20)
+[2023-10-02T10:27:38.432+0000] {Web_To_GCS_Hook.py:90} INFO - Parquet: green_tripdata_2021-03.csv
+[2023-10-02T10:27:46.434+0000] {gcs.py:538} INFO - File /tmp/tmp40uq8vez/green_tripdata_2021-03.csv uploaded to green/green_tripdata_2021-03.csv in practice18 bucket
+[2023-10-02T10:27:46.434+0000] {Web_To_GCS_Hook.py:105} INFO - Loaded file from https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2021-03.csv.gz to gs://practice18//green/green_tripdata_2021-03.csv
+[2023-10-02T10:27:46.452+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=extract_to_gcs, execution_date=20210302T060000, start_date=20231002T102732, end_date=20231002T102746
+[2023-10-02T10:27:46.836+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-10-02T10:27:46.870+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check

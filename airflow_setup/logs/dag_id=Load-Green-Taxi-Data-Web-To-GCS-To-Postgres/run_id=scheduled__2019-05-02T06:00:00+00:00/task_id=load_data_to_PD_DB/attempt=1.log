@@ -1,0 +1,25 @@
+[2023-10-02T18:27:39.259+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data_to_PD_DB scheduled__2019-05-02T06:00:00+00:00 [queued]>
+[2023-10-02T18:27:39.271+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data_to_PD_DB scheduled__2019-05-02T06:00:00+00:00 [queued]>
+[2023-10-02T18:27:39.271+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-10-02T18:27:39.303+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): load_data_to_PD_DB> on 2019-05-02 06:00:00+00:00
+[2023-10-02T18:27:39.312+0000] {standard_task_runner.py:57} INFO - Started process 9078 to run task
+[2023-10-02T18:27:39.316+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'load_data_to_PD_DB', 'scheduled__2019-05-02T06:00:00+00:00', '--job-id', '1014', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmpve07rmes']
+[2023-10-02T18:27:39.318+0000] {standard_task_runner.py:85} INFO - Job 1014: Subtask load_data_to_PD_DB
+[2023-10-02T18:27:39.379+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data_to_PD_DB scheduled__2019-05-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T18:27:39.536+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='load_data_to_PD_DB' AIRFLOW_CTX_EXECUTION_DATE='2019-05-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2019-05-02T06:00:00+00:00'
+[2023-10-02T18:27:39.552+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:205: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2023-10-02T18:27:39.552+0000] {logging_mixin.py:150} INFO - 5432 chris_de green_taxi_data /opt/***/green_tripdata_2019-05.csv 2019-05-02T06:00:00+00:00
+[2023-10-02T18:27:39.558+0000] {logging_mixin.py:150} INFO - connection was made successfully 
+[2023-10-02T18:27:54.754+0000] {logging_mixin.py:150} INFO - Inserted the initial chunk into the table at about 15.196 seconds
+[2023-10-02T18:28:10.888+0000] {logging_mixin.py:150} INFO - Insertion for this chunk was successfull at complete at about 16.134 seconds
+[2023-10-02T18:28:28.808+0000] {logging_mixin.py:150} INFO - Insertion for this chunk was successfull at complete at about 17.919 seconds
+[2023-10-02T18:28:44.806+0000] {logging_mixin.py:150} INFO - Insertion for this chunk was successfull at complete at about 15.861 seconds
+[2023-10-02T18:29:10.605+0000] {logging_mixin.py:150} INFO - Insertion for this chunk was successfull at complete at about 25.798 seconds
+[2023-10-02T18:29:11.984+0000] {logging_mixin.py:150} INFO - Insertion for this chunk was successfull at complete at about 1.202 seconds
+[2023-10-02T18:29:11.984+0000] {logging_mixin.py:150} INFO - Loading has ended
+[2023-10-02T18:29:12.052+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-10-02T18:29:12.063+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=load_data_to_PD_DB, execution_date=20190502T060000, start_date=20231002T182739, end_date=20231002T182912
+[2023-10-02T18:29:12.408+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-10-02T18:29:12.430+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check

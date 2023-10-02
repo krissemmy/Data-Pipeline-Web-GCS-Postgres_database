@@ -1,0 +1,28 @@
+[2023-10-02T18:14:18.977+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.extract_from_web_to_gcs scheduled__2019-04-02T06:00:00+00:00 [queued]>
+[2023-10-02T18:14:18.988+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.extract_from_web_to_gcs scheduled__2019-04-02T06:00:00+00:00 [queued]>
+[2023-10-02T18:14:18.988+0000] {taskinstance.py:1308} INFO - Starting attempt 3 of 3
+[2023-10-02T18:14:19.014+0000] {taskinstance.py:1327} INFO - Executing <Task(WebToGCSHKOperator): extract_from_web_to_gcs> on 2019-04-02 06:00:00+00:00
+[2023-10-02T18:14:19.021+0000] {standard_task_runner.py:57} INFO - Started process 8861 to run task
+[2023-10-02T18:14:19.024+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'extract_from_web_to_gcs', 'scheduled__2019-04-02T06:00:00+00:00', '--job-id', '1008', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmpa4qlb54x']
+[2023-10-02T18:14:19.026+0000] {standard_task_runner.py:85} INFO - Job 1008: Subtask extract_from_web_to_gcs
+[2023-10-02T18:14:19.083+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.extract_from_web_to_gcs scheduled__2019-04-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T18:14:19.219+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='extract_from_web_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2019-04-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2019-04-02T06:00:00+00:00'
+[2023-10-02T18:14:19.221+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-10-02T18:14:19.221+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-10-02T18:14:19.222+0000] {Web_To_GCS_Hook.py:67} INFO - Execute downloading of file from https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-04.csv.gz to gs://practice18//green_tripdata_2019-04.csv.gz
+[2023-10-02T18:14:25.069+0000] {Web_To_GCS_Hook.py:79} INFO - File written to temporary directory: /tmp/tmpz_eiuumj/green_tripdata_2019-04.csv.gz
+[2023-10-02T18:14:27.030+0000] {logging_mixin.py:150} INFO -    VendorID lpep_pickup_datetime  ... trip_type congestion_surcharge
+0         2  2019-04-01 00:18:40  ...         1                 2.75
+1         2  2019-04-01 00:18:24  ...         1                 0.00
+2         2  2019-04-01 00:31:24  ...         1                 0.00
+3         2  2019-04-01 00:48:30  ...         1                 0.00
+4         1  2019-04-01 00:04:42  ...         1                 0.00
+
+[5 rows x 20 columns]
+[2023-10-02T18:14:27.031+0000] {logging_mixin.py:150} INFO - (514392, 20)
+[2023-10-02T18:14:31.932+0000] {Web_To_GCS_Hook.py:90} INFO - Parquet: green_tripdata_2019-04.csv
+[2023-10-02T18:18:55.962+0000] {gcs.py:538} INFO - File /tmp/tmpz_eiuumj/green_tripdata_2019-04.csv uploaded to green/green_tripdata_2019-04.csv in practice18 bucket
+[2023-10-02T18:18:55.974+0000] {Web_To_GCS_Hook.py:105} INFO - Loaded file from https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-04.csv.gz to gs://practice18//green/green_tripdata_2019-04.csv
+[2023-10-02T18:18:56.180+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=extract_from_web_to_gcs, execution_date=20190402T060000, start_date=20231002T181418, end_date=20231002T181856
+[2023-10-02T18:18:56.258+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-10-02T18:18:56.298+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,27 @@
+[2023-10-02T19:06:42.255+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data_to_PD_DB scheduled__2019-12-02T06:00:00+00:00 [queued]>
+[2023-10-02T19:06:42.266+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data_to_PD_DB scheduled__2019-12-02T06:00:00+00:00 [queued]>
+[2023-10-02T19:06:42.267+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-10-02T19:06:42.291+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): load_data_to_PD_DB> on 2019-12-02 06:00:00+00:00
+[2023-10-02T19:06:42.299+0000] {standard_task_runner.py:57} INFO - Started process 9725 to run task
+[2023-10-02T19:06:42.302+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'load_data_to_PD_DB', 'scheduled__2019-12-02T06:00:00+00:00', '--job-id', '1036', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmphia5db5i']
+[2023-10-02T19:06:42.304+0000] {standard_task_runner.py:85} INFO - Job 1036: Subtask load_data_to_PD_DB
+[2023-10-02T19:06:42.361+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data_to_PD_DB scheduled__2019-12-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T19:06:42.481+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='load_data_to_PD_DB' AIRFLOW_CTX_EXECUTION_DATE='2019-12-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2019-12-02T06:00:00+00:00'
+[2023-10-02T19:06:42.497+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:205: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2023-10-02T19:06:42.497+0000] {logging_mixin.py:150} INFO - 5432 chris_de green_taxi_data /opt/***/green_tripdata_2019-12.csv 2019-12-02T06:00:00+00:00
+[2023-10-02T19:06:42.504+0000] {logging_mixin.py:150} INFO - connection was made successfully 
+[2023-10-02T19:06:55.659+0000] {logging_mixin.py:150} INFO - Inserted the initial chunk into the table at about 13.154 seconds
+[2023-10-02T19:07:09.627+0000] {logging_mixin.py:150} INFO - Insertion for this chunk was successfull at complete at about 13.968 seconds
+[2023-10-02T19:07:22.783+0000] {logging_mixin.py:150} INFO - Insertion for this chunk was successfull at complete at about 13.156 seconds
+[2023-10-02T19:07:23.016+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/operators/python.py:181: DtypeWarning: Columns (3) have mixed types.Specify dtype option on import or set low_memory=False.
+  return_value = self.execute_callable()
+
+[2023-10-02T19:07:34.652+0000] {logging_mixin.py:150} INFO - Insertion for this chunk was successfull at complete at about 11.868 seconds
+[2023-10-02T19:07:41.033+0000] {logging_mixin.py:150} INFO - Insertion for this chunk was successfull at complete at about 6.381 seconds
+[2023-10-02T19:07:41.034+0000] {logging_mixin.py:150} INFO - Loading has ended
+[2023-10-02T19:07:41.034+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-10-02T19:07:41.046+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=load_data_to_PD_DB, execution_date=20191202T060000, start_date=20231002T190642, end_date=20231002T190741
+[2023-10-02T19:07:41.128+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-10-02T19:07:41.153+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -73,6 +73,14 @@ USER $AIRFLOW_UID
 
 10. Initialize all the other services: docker-compose up
 
+11. Connect external postgres container to the airflow container by assigning the airflow_default network to the postgres container: see the yaml file.
+run below command to see the name of your airflow network
+```bash
+docker network ls
+```
+
+12. Check for postgres db access from the airflow container.
+
 ### SetUp GCP for Local System (Local Environment Oauth-authentication)
 1. Create GCP PROJECT
 2. Create service account: Add Editor and storage admin, storage object admins and bigquery admin
@@ -89,13 +97,13 @@ mv <path/to/your/service-account-authkeys>.json ~/.google/credentials/google_cre
 ```
 mv  /home/krissemmy/Downloads/alt-data-engr-1dfdbf9f8dbf.json ~/.google/credentials/google_credentials.json
 ```
-4. Install gcloud on system : open new terminal and run    (follow this link to install gcloud-sdk : https://cloud.google.com/sdk/docs/install-sdk)
+5. Install gcloud on system : open new terminal and run    (follow this link to install gcloud-sdk : https://cloud.google.com/sdk/docs/install-sdk)
 
     ```bash
     gcloud -v
     ```
   to see if its installed successfully
-5. Set the google applications credentials environment variable
+6. Set the google applications credentials environment variable
 
   ```bash
   export GOOGLE_APPLICATION_CREDENTIALS="/path/to/.json-file"
@@ -106,8 +114,8 @@ mv  /home/krissemmy/Downloads/alt-data-engr-1dfdbf9f8dbf.json ~/.google/credenti
   ```bash
   export GOOGLE_APPLICATION_CREDENTIALS = "/home/krissemmy/.google/credentials/google_credentials.json"
   ```
-6. Run gcloud auth application-default login
-7. Redirect to the website and authenticate local environment with the cloud environment
+7. Run gcloud auth application-default login
+8. Redirect to the website and authenticate local environment with the cloud environment
 
 ## Enable API
 perform the following on your Google Cloud Platform
