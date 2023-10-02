@@ -1,0 +1,32 @@
+[2023-10-02T11:47:27.517+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.read_postgres scheduled__2019-01-02T06:00:00+00:00 [queued]>
+[2023-10-02T11:47:27.530+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.read_postgres scheduled__2019-01-02T06:00:00+00:00 [queued]>
+[2023-10-02T11:47:27.530+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-10-02T11:47:27.669+0000] {taskinstance.py:1327} INFO - Executing <Task(PostgresOperator): read_postgres> on 2019-01-02 06:00:00+00:00
+[2023-10-02T11:47:27.679+0000] {standard_task_runner.py:57} INFO - Started process 2108 to run task
+[2023-10-02T11:47:27.683+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'read_postgres', 'scheduled__2019-01-02T06:00:00+00:00', '--job-id', '827', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmpy5q0lkr6']
+[2023-10-02T11:47:27.686+0000] {standard_task_runner.py:85} INFO - Job 827: Subtask read_postgres
+[2023-10-02T11:47:27.875+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.read_postgres scheduled__2019-01-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T11:47:28.216+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='read_postgres' AIRFLOW_CTX_EXECUTION_DATE='2019-01-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2019-01-02T06:00:00+00:00'
+[2023-10-02T11:47:28.217+0000] {sql.py:265} INFO - Executing: SELECT * FROM yellow_taxi LIMIT 5;
+[2023-10-02T11:47:28.227+0000] {base.py:73} INFO - Using connection ID 'my_postgres_conn' for task execution.
+[2023-10-02T11:48:00.821+0000] {base.py:73} INFO - Using connection ID 'my_postgres_conn' for task execution.
+[2023-10-02T11:48:00.826+0000] {sql.py:375} INFO - Running statement: SELECT * FROM yellow_taxi LIMIT 5;, parameters: None
+[2023-10-02T11:48:00.827+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 277, in execute
+    **extra_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 349, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 380, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedTable: relation "yellow_taxi" does not exist
+LINE 1: SELECT * FROM yellow_taxi LIMIT 5;
+                      ^
+
+[2023-10-02T11:48:01.477+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=read_postgres, execution_date=20190102T060000, start_date=20231002T114727, end_date=20231002T114801
+[2023-10-02T11:48:01.771+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 827 for task read_postgres (relation "yellow_taxi" does not exist
+LINE 1: SELECT * FROM yellow_taxi LIMIT 5;
+                      ^
+; 2108)
+[2023-10-02T11:48:01.810+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-10-02T11:48:01.845+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

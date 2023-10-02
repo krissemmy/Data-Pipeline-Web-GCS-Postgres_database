@@ -1,0 +1,10 @@
+[2023-09-27T07:39:04.357+0000] {processor.py:157} INFO - Started process (PID=97) to work on /opt/airflow/dags/load_yellow_tx_web_to_gcs.py
+[2023-09-27T07:39:04.357+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/load_yellow_tx_web_to_gcs.py for tasks to queue
+[2023-09-27T07:39:04.358+0000] {logging_mixin.py:150} INFO - [2023-09-27T07:39:04.358+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/load_yellow_tx_web_to_gcs.py
+[2023-09-27T07:39:07.598+0000] {processor.py:836} INFO - DAG(s) dict_keys(['Load-Yellow-Taxi-Data-Web-To-GCS']) retrieved from /opt/airflow/dags/load_yellow_tx_web_to_gcs.py
+[2023-09-27T07:39:33.263+0000] {logging_mixin.py:150} INFO - [2023-09-27T07:39:33.262+0000] {process_utils.py:258} INFO - Waiting up to 5 seconds for processes to exit...
+[2023-09-27T08:25:43.387+0000] {processor.py:157} INFO - Started process (PID=79) to work on /opt/airflow/dags/load_yellow_tx_web_to_gcs.py
+[2023-09-27T08:25:43.604+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/load_yellow_tx_web_to_gcs.py for tasks to queue
+[2023-09-27T08:25:43.606+0000] {logging_mixin.py:150} INFO - [2023-09-27T08:25:43.605+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/load_yellow_tx_web_to_gcs.py
+[2023-09-27T08:25:44.431+0000] {processor.py:836} INFO - DAG(s) dict_keys(['Load-Yellow-Taxi-Data-Web-To-GCS']) retrieved from /opt/airflow/dags/load_yellow_tx_web_to_gcs.py
+[2023-09-27T08:25:50.077+0000] {logging_mixin.py:150} INFO - [2023-09-27T08:25:50.076+0000] {process_utils.py:258} INFO - Waiting up to 5 seconds for processes to exit...

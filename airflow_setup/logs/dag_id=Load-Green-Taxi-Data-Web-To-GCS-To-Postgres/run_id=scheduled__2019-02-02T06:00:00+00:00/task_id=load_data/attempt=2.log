@@ -1,0 +1,30 @@
+[2023-10-02T16:43:43.972+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data scheduled__2019-02-02T06:00:00+00:00 [queued]>
+[2023-10-02T16:43:43.989+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data scheduled__2019-02-02T06:00:00+00:00 [queued]>
+[2023-10-02T16:43:43.990+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 3
+[2023-10-02T16:43:44.581+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): load_data> on 2019-02-02 06:00:00+00:00
+[2023-10-02T16:43:44.591+0000] {standard_task_runner.py:57} INFO - Started process 7332 to run task
+[2023-10-02T16:43:44.601+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'load_data', 'scheduled__2019-02-02T06:00:00+00:00', '--job-id', '977', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmp11figlcy']
+[2023-10-02T16:43:44.604+0000] {standard_task_runner.py:85} INFO - Job 977: Subtask load_data
+[2023-10-02T16:43:45.782+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data scheduled__2019-02-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T16:43:48.246+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2019-02-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2019-02-02T06:00:00+00:00'
+[2023-10-02T16:43:48.248+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:205: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2023-10-02T16:43:48.248+0000] {logging_mixin.py:150} INFO - 5432 chris_de green_taxi_data /opt/***/green_tripdata_2019-02.csv 2019-02-02T06:00:00+00:00
+[2023-10-02T16:43:48.565+0000] {logging_mixin.py:150} INFO - connection was made successfully 
+[2023-10-02T16:44:13.330+0000] {logging_mixin.py:150} INFO - Inserted the initial chunk into the table at about 24.765 seconds
+[2023-10-02T16:44:19.335+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/plugins/web/operators/PG_db_ingestion.py", line 45, in db_conn_ingestion
+    df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 5487, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'tpep_pickup_datetime'
+[2023-10-02T16:44:19.356+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=load_data, execution_date=20190202T060000, start_date=20231002T164343, end_date=20231002T164419
+[2023-10-02T16:44:20.314+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 977 for task load_data ('DataFrame' object has no attribute 'tpep_pickup_datetime'; 7332)
+[2023-10-02T16:44:20.491+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-10-02T16:44:20.508+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

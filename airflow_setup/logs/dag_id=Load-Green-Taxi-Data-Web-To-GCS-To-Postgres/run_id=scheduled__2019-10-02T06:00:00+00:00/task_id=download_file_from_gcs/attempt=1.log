@@ -1,0 +1,25 @@
+[2023-10-02T01:50:27.543+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2019-10-02T06:00:00+00:00 [queued]>
+[2023-10-02T01:50:27.555+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2019-10-02T06:00:00+00:00 [queued]>
+[2023-10-02T01:50:27.556+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-10-02T01:50:27.577+0000] {taskinstance.py:1327} INFO - Executing <Task(GCSToLocalFilesystemOperator): download_file_from_gcs> on 2019-10-02 06:00:00+00:00
+[2023-10-02T01:50:27.585+0000] {standard_task_runner.py:57} INFO - Started process 2197 to run task
+[2023-10-02T01:50:27.588+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'download_file_from_gcs', 'scheduled__2019-10-02T06:00:00+00:00', '--job-id', '685', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmph_usdrds']
+[2023-10-02T01:50:27.590+0000] {standard_task_runner.py:85} INFO - Job 685: Subtask download_file_from_gcs
+[2023-10-02T01:50:27.651+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2019-10-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T01:50:27.791+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='download_file_from_gcs' AIRFLOW_CTX_EXECUTION_DATE='2019-10-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2019-10-02T06:00:00+00:00'
+[2023-10-02T01:50:27.792+0000] {gcs_to_local.py:111} INFO - Executing download: practice18, green/green_tripdata_2019-10.csv, /tmp/tmph5yrnxqe/green_tripdata_2019-10.csv
+[2023-10-02T01:50:27.793+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-10-02T01:50:27.794+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-10-02T01:50:27.839+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/transfers/gcs_to_local.py", line 125, in execute
+    hook.download(bucket_name=self.bucket, object_name=self.object_name, filename=self.filename)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 340, in download
+    blob.download_to_filename(filename, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/cloud/storage/blob.py", line 1255, in download_to_filename
+    with open(filename, "wb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmph5yrnxqe/green_tripdata_2019-10.csv'
+[2023-10-02T01:50:27.851+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=download_file_from_gcs, execution_date=20191002T060000, start_date=20231002T015027, end_date=20231002T015027
+[2023-10-02T01:50:27.888+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 685 for task download_file_from_gcs ([Errno 2] No such file or directory: '/tmp/tmph5yrnxqe/green_tripdata_2019-10.csv'; 2197)
+[2023-10-02T01:50:27.959+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-10-02T01:50:28.097+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

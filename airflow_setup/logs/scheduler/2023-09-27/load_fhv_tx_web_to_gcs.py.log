@@ -1,0 +1,8 @@
+[2023-09-27T07:39:04.357+0000] {processor.py:157} INFO - Started process (PID=96) to work on /opt/airflow/dags/load_fhv_tx_web_to_gcs.py
+[2023-09-27T07:39:04.357+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/load_fhv_tx_web_to_gcs.py for tasks to queue
+[2023-09-27T07:39:04.358+0000] {logging_mixin.py:150} INFO - [2023-09-27T07:39:04.358+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/load_fhv_tx_web_to_gcs.py
+[2023-09-27T07:39:07.589+0000] {processor.py:836} INFO - DAG(s) dict_keys(['Load-FHV-Taxi-Data-To-GCS-With-Hook']) retrieved from /opt/airflow/dags/load_fhv_tx_web_to_gcs.py
+[2023-09-27T08:25:43.380+0000] {processor.py:157} INFO - Started process (PID=78) to work on /opt/airflow/dags/load_fhv_tx_web_to_gcs.py
+[2023-09-27T08:25:43.604+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/load_fhv_tx_web_to_gcs.py for tasks to queue
+[2023-09-27T08:25:43.606+0000] {logging_mixin.py:150} INFO - [2023-09-27T08:25:43.605+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/load_fhv_tx_web_to_gcs.py
+[2023-09-27T08:25:44.303+0000] {processor.py:836} INFO - DAG(s) dict_keys(['Load-FHV-Taxi-Data-To-GCS-With-Hook']) retrieved from /opt/airflow/dags/load_fhv_tx_web_to_gcs.py

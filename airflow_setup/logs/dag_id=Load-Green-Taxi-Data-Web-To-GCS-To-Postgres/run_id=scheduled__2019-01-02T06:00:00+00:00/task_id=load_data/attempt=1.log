@@ -1,0 +1,29 @@
+[2023-10-02T16:31:54.187+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data scheduled__2019-01-02T06:00:00+00:00 [queued]>
+[2023-10-02T16:31:54.198+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data scheduled__2019-01-02T06:00:00+00:00 [queued]>
+[2023-10-02T16:31:54.199+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-10-02T16:31:54.219+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): load_data> on 2019-01-02 06:00:00+00:00
+[2023-10-02T16:31:54.228+0000] {standard_task_runner.py:57} INFO - Started process 7137 to run task
+[2023-10-02T16:31:54.231+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'load_data', 'scheduled__2019-01-02T06:00:00+00:00', '--job-id', '971', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmpdze634zp']
+[2023-10-02T16:31:54.234+0000] {standard_task_runner.py:85} INFO - Job 971: Subtask load_data
+[2023-10-02T16:31:54.302+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_data scheduled__2019-01-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T16:31:54.431+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2019-01-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2019-01-02T06:00:00+00:00'
+[2023-10-02T16:31:54.450+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:205: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2023-10-02T16:31:54.451+0000] {logging_mixin.py:150} INFO - 5432 chris_de green_taxi_data /opt/***/green_tripdata_2019-01.csv 2019-01-02T06:00:00+00:00
+[2023-10-02T16:31:54.532+0000] {logging_mixin.py:150} INFO - connection was made successfully 
+[2023-10-02T16:31:54.808+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/utils/db_ingestion.py", line 27, in db_conn_ingestion
+    df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 5487, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'tpep_pickup_datetime'
+[2023-10-02T16:31:54.861+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=load_data, execution_date=20190102T060000, start_date=20231002T163154, end_date=20231002T163154
+[2023-10-02T16:31:54.896+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 971 for task load_data ('DataFrame' object has no attribute 'tpep_pickup_datetime'; 7137)
+[2023-10-02T16:31:54.964+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-10-02T16:31:54.999+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

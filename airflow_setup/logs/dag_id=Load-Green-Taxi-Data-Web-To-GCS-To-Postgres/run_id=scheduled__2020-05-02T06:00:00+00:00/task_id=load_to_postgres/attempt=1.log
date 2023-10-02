@@ -1,0 +1,61 @@
+[2023-10-02T02:44:41.443+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_to_postgres scheduled__2020-05-02T06:00:00+00:00 [queued]>
+[2023-10-02T02:44:41.459+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_to_postgres scheduled__2020-05-02T06:00:00+00:00 [queued]>
+[2023-10-02T02:44:41.460+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-10-02T02:44:41.503+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): load_to_postgres> on 2020-05-02 06:00:00+00:00
+[2023-10-02T02:44:41.511+0000] {standard_task_runner.py:57} INFO - Started process 3234 to run task
+[2023-10-02T02:44:41.515+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'load_to_postgres', 'scheduled__2020-05-02T06:00:00+00:00', '--job-id', '720', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmpwdjrvpk6']
+[2023-10-02T02:44:41.517+0000] {standard_task_runner.py:85} INFO - Job 720: Subtask load_to_postgres
+[2023-10-02T02:44:41.601+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_to_postgres scheduled__2020-05-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T02:44:41.728+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='load_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2020-05-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2020-05-02T06:00:00+00:00'
+[2023-10-02T02:44:41.739+0000] {base.py:73} INFO - Using connection ID 'my_postgres_conn' for task execution.
+[2023-10-02T02:44:41.744+0000] {sql.py:375} INFO - Running statement: 
+		    -- create green table
+		    CREATE TABLE IF NOT EXISTS green_taxi (
+		        VendorID INT,
+		        lpep_pickup_datetime TIMESTAMP,
+		        lpep_dropoff_datetime TIMESTAMP,
+		        store_and_fwd_flag VARCHAR,
+		        RatecodeID FLOAT,
+		        PULocationID FLOAT,
+		        DOLocationID FLOAT,
+		        passenger_count FLOAT,
+		        trip_distance FLOAT,
+		        fare_amount FLOAT,
+		        extra FLOAT,
+		        mta_tax FLOAT,
+		        tip_amount FLOAT,
+		        tolls_amount FLOAT,
+		        ehail_fee FLOAT,
+		        improvement_surcharge FLOAT,
+		        total_amount FLOAT,
+		        payment_type FLOAT,
+		        trip_type FLOAT,
+		        congestion_surcharge FLOAT
+		    );
+
+		    -- ingest data
+		    COPY green_taxi FROM 'green_tripdata_{{ dag_run.logical_date.strftime('%Y-%m') }}.csv' DELIMITER ',' CSV HEADER;
+		, parameters: None
+[2023-10-02T02:44:41.745+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/web_gcs_pg.py", line 92, in load_data_to_postgres
+    postgres_hook.run(sql)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 349, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 380, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.SyntaxError: syntax error at or near "%"
+LINE 27: ...'green_tripdata_{{ dag_run.logical_date.strftime('%Y-%m') }}...
+                                                              ^
+
+[2023-10-02T02:44:41.756+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=load_to_postgres, execution_date=20200502T060000, start_date=20231002T024441, end_date=20231002T024441
+[2023-10-02T02:44:41.780+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 720 for task load_to_postgres (syntax error at or near "%"
+LINE 27: ...'green_tripdata_{{ dag_run.logical_date.strftime('%Y-%m') }}...
+                                                              ^
+; 3234)
+[2023-10-02T02:44:41.807+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-10-02T02:44:41.835+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

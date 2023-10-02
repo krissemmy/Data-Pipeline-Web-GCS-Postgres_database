@@ -1,0 +1,26 @@
+services:
+  chris_de:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=chris
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=nyc_taxi
+    volumes:
+      - "./nytaxi_postgres_data:/var/lib/postgresql/data:rw"
+    ports:
+      - "5432:5432"
+    # networks:
+    #  - airflow
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=mail@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "8080:80"
+    volumes:
+      - ./data_pgadmin:/var/lib/pgadmin
+# networks:
+#  airflow:
+#    external:
+#      name: airflow_setup_default

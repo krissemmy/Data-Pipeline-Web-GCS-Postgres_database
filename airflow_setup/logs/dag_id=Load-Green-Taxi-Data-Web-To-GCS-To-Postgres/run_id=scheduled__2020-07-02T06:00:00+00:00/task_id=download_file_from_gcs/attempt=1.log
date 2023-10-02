@@ -1,0 +1,16 @@
+[2023-10-02T03:14:58.075+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2020-07-02T06:00:00+00:00 [queued]>
+[2023-10-02T03:14:58.088+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2020-07-02T06:00:00+00:00 [queued]>
+[2023-10-02T03:14:58.088+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-10-02T03:14:58.116+0000] {taskinstance.py:1327} INFO - Executing <Task(GCSToLocalFilesystemOperator): download_file_from_gcs> on 2020-07-02 06:00:00+00:00
+[2023-10-02T03:14:58.124+0000] {standard_task_runner.py:57} INFO - Started process 3770 to run task
+[2023-10-02T03:14:58.128+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'download_file_from_gcs', 'scheduled__2020-07-02T06:00:00+00:00', '--job-id', '726', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmp0sbkss4_']
+[2023-10-02T03:14:58.130+0000] {standard_task_runner.py:85} INFO - Job 726: Subtask download_file_from_gcs
+[2023-10-02T03:14:58.190+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.download_file_from_gcs scheduled__2020-07-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T03:14:58.372+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='download_file_from_gcs' AIRFLOW_CTX_EXECUTION_DATE='2020-07-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2020-07-02T06:00:00+00:00'
+[2023-10-02T03:14:58.373+0000] {gcs_to_local.py:111} INFO - Executing download: practice18, green/green_tripdata_2020-07.csv, green_tripdata_2020-07.csv
+[2023-10-02T03:14:58.374+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-10-02T03:14:58.374+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-10-02T03:15:06.083+0000] {gcs.py:341} INFO - File downloaded to green_tripdata_2020-07.csv
+[2023-10-02T03:15:06.094+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=download_file_from_gcs, execution_date=20200702T060000, start_date=20231002T031458, end_date=20231002T031506
+[2023-10-02T03:15:06.144+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-10-02T03:15:06.169+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check

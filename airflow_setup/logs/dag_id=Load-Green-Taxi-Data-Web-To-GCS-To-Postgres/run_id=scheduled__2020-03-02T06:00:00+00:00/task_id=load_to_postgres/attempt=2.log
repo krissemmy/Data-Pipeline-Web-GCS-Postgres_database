@@ -1,0 +1,86 @@
+[2023-10-02T02:28:57.682+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_to_postgres scheduled__2020-03-02T06:00:00+00:00 [queued]>
+[2023-10-02T02:28:57.693+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_to_postgres scheduled__2020-03-02T06:00:00+00:00 [queued]>
+[2023-10-02T02:28:57.694+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 3
+[2023-10-02T02:28:57.719+0000] {taskinstance.py:1327} INFO - Executing <Task(PostgresOperator): load_to_postgres> on 2020-03-02 06:00:00+00:00
+[2023-10-02T02:28:57.727+0000] {standard_task_runner.py:57} INFO - Started process 2939 to run task
+[2023-10-02T02:28:57.730+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Load-Green-Taxi-Data-Web-To-GCS-To-Postgres', 'load_to_postgres', 'scheduled__2020-03-02T06:00:00+00:00', '--job-id', '712', '--raw', '--subdir', 'DAGS_FOLDER/web_gcs_pg.py', '--cfg-path', '/tmp/tmp3muw4496']
+[2023-10-02T02:28:57.733+0000] {standard_task_runner.py:85} INFO - Job 712: Subtask load_to_postgres
+[2023-10-02T02:28:57.792+0000] {task_command.py:410} INFO - Running <TaskInstance: Load-Green-Taxi-Data-Web-To-GCS-To-Postgres.load_to_postgres scheduled__2020-03-02T06:00:00+00:00 [running]> on host 537710aea1a2
+[2023-10-02T02:28:57.920+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Load-Green-Taxi-Data-Web-To-GCS-To-Postgres' AIRFLOW_CTX_TASK_ID='load_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2020-03-02T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2020-03-02T06:00:00+00:00'
+[2023-10-02T02:28:57.920+0000] {sql.py:265} INFO - Executing:  
+   	-- create green table
+   	CREATE TABLE IF NOT EXISTS green_taxi (
+   		VendorID INT,
+   		lpep_pickup_datetime TIMESTAMP,
+   		lpep_dropoff_datetime TIMESTAMP,
+   		store_and_fwd_flag VARCHAR,
+   		RatecodeID FLOAT,
+   		PULocationID FLOAT,
+   		DOLocationID FLOAT,
+   		passenger_count FLOAT,
+   		trip_distance FLOAT,
+   		fare_amount FLOAT,
+   		extra FLOAT,
+   		mta_tax FLOAT,
+   		tip_amount FLOAT,
+   		tolls_amount FLOAT,
+   		ehail_fee FLOAT,
+   		improvement_surcharge FLOAT,
+   		total_amount FLOAT,
+   		payment_type FLOAT,
+   		trip_type FLOAT,
+   		congestion_surcharge FLOAT
+   	);
+
+   	-- ingest data
+   	COPY green_taxi FROM 'green_tripdata_2020-03.csv' CSV HEADER;
+
+    
+[2023-10-02T02:28:57.929+0000] {base.py:73} INFO - Using connection ID 'my_postgres_conn' for task execution.
+[2023-10-02T02:28:57.994+0000] {base.py:73} INFO - Using connection ID 'my_postgres_conn' for task execution.
+[2023-10-02T02:28:57.998+0000] {sql.py:375} INFO - Running statement:  
+   	-- create green table
+   	CREATE TABLE IF NOT EXISTS green_taxi (
+   		VendorID INT,
+   		lpep_pickup_datetime TIMESTAMP,
+   		lpep_dropoff_datetime TIMESTAMP,
+   		store_and_fwd_flag VARCHAR,
+   		RatecodeID FLOAT,
+   		PULocationID FLOAT,
+   		DOLocationID FLOAT,
+   		passenger_count FLOAT,
+   		trip_distance FLOAT,
+   		fare_amount FLOAT,
+   		extra FLOAT,
+   		mta_tax FLOAT,
+   		tip_amount FLOAT,
+   		tolls_amount FLOAT,
+   		ehail_fee FLOAT,
+   		improvement_surcharge FLOAT,
+   		total_amount FLOAT,
+   		payment_type FLOAT,
+   		trip_type FLOAT,
+   		congestion_surcharge FLOAT
+   	);
+
+   	-- ingest data
+   	COPY green_taxi FROM 'green_tripdata_2020-03.csv' CSV HEADER;
+
+    , parameters: None
+[2023-10-02T02:28:58.269+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 277, in execute
+    **extra_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 349, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 380, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedFile: could not open file "green_tripdata_2020-03.csv" for reading: No such file or directory
+HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+
+[2023-10-02T02:28:58.282+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=Load-Green-Taxi-Data-Web-To-GCS-To-Postgres, task_id=load_to_postgres, execution_date=20200302T060000, start_date=20231002T022857, end_date=20231002T022858
+[2023-10-02T02:28:58.307+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 712 for task load_to_postgres (could not open file "green_tripdata_2020-03.csv" for reading: No such file or directory
+HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+; 2939)
+[2023-10-02T02:28:58.344+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-10-02T02:28:58.389+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
