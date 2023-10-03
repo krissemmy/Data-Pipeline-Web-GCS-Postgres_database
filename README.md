@@ -3,12 +3,12 @@
 
 
 ## Overview
-• An Extract and Load pipeline that gets NYC Green taxi data from DataTalks GitHub Repo,
-loads it into GCS Bucket and transfer the data from the GCS Bucket to a BigQuery Table.
+• An Extract, Transform and Load pipeline that gets NYC Green taxi data from DataTalks GitHub Repo,
+loads it into GCS Bucket and transfer the data from the GCS Bucket to a Postgres Database Table.
 
 • It is scheduled to run monthly and will get the corresponding months data.
 
-• Built using the GCS Hook and GCS_To_BigQuery Operator
+• Built using the GCS Hook and a custom Postgres connection.
 
 • The data pipeline is built in a Docker container and executed with Celery executor so it gives room for scalability.
 
